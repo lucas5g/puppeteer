@@ -6,3 +6,4 @@ exports.getDate = () => {
 
   return `Diário de Classe ${date}`
 }
+

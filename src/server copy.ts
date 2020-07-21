@@ -1,38 +1,25 @@
-const puppeteer = require('puppeteer')
-const dotenv = require('dotenv')
-const { getDate } = require('./utils')
+import  puppeteer from 'puppeteer'
+import { getDate } from './utils'
+import { courses, login } from './service/data'
 
-dotenv.config()
-
-console.log(getDate())
-
-
-const courses = {
-
-  teste: {name: 'teste', url: 'https://meuvicuna.freicarlosvicuna.com.br/course/view.php?id=81&section=5&singlesec=5'},
-  portuguesVM3: {name: 'portuguesVM3', url:'https://meuvicuna.freicarlosvicuna.com.br/course/view.php?id=49&section=1&notifyeditingon=1'},
-  espanholVM2: {name: 'espanholVM2', url:'https://meuvicuna.freicarlosvicuna.com.br/course/view.php?id=63&section=1&singlesec=1'}
-  
-
-}
-// console.log(courses)
-
-const login = {
-  link: 'https://meuvicuna.freicarlosvicuna.com.br/',
-  email: process.env.Email,
-  password: process.env.Password
+// console.log(login)
+interface Courses{
+  name: string,
+  url: string
 }
 
-const menu = async () => {
-  const browser = await puppeteer.launch({ headless: true, args: ['--start-fullscreen'] })
-  const page = await browser.newPage()
-  await page.setViewport({ width: 1550, height: 900 }); 
+const menu =  async () => {
+// async function menu(courses: Courses){
+  // const browser = await puppeteer.launch({ headless: true, args: ['--start-fullscreen'] })
+  // const page = await browser.newPage()
+  // await page.setViewport({ width: 1550, height: 900 }); 
 
-  await robo(courses.teste)
+  console.log(courses[0].name)
+  await robo(courses[0])
 
 } 
-const robo = async course => {
-  const browser = await puppeteer.launch({ headless: true, args: ['--start-fullscreen'] })
+const robo = async (course:Courses) => {
+  const browser = await puppeteer.launch({ headless: false, /*args: ['--start-fullscreen']*/ })
   const page = await browser.newPage()
   await page.setViewport({ width: 1550, height: 900 });
   await page.goto(course.url)
@@ -50,17 +37,20 @@ const robo = async course => {
   // setTimeout( async() => await page.click('#action-menu-2-menu > div:nth-child(2) > a'), 1000)
 
   await page.waitFor('ul.section.img-text.nosubtiles.yui3-dd-drop')
-
+  // const qtdLi = await page.$$('ul.section.img-text.nosubtiles.yui3-dd-drop').('li').length
   const qtdLi = await page.evaluate(() => {
-    return document.querySelector('ul.section.img-text.nosubtiles.yui3-dd-drop').querySelectorAll('li').length
+    const query = <HTMLInputElement>document.querySelector('ul.section.img-text.nosubtiles.yui3-dd-drop')
+        
+    return  query?.getElementsByTagName('li').length
   })
-  console.log(qtdLi)
+
+  // console.log(qtdLi)
 
   const ulSelected = `.section.img-text.nosubtiles.yui3-dd-drop li:nth-child(${qtdLi}) .dropdown-toggle.icon-no-margin`
-  console.log(ulSelected)
+  // console.log(ulSelected)
 
   const editDuplicate = `.dropdown-menu.dropdown-menu-right.menu.align-tr-br.show  a:nth-child(5)`
-  console.log(editDuplicate)
+  // console.log(editDuplicate)
 
   await page.waitFor(ulSelected)
   await page.click(ulSelected)
@@ -80,15 +70,17 @@ const robo = async course => {
   await page.type('input[type="text"]', getDate(), {delay: 50})
   await page.keyboard.press('Enter')
 
-  await page.waitFor(1000)
+  await page.waitFor(2000)
   await page.screenshot({ path: `./screenshots/${[course.name]}.png`, fullPage: true })
+
+  console.log(`${course.name} - Concluído com Sucesso`)
 
   await browser.close()
 
 }
 
 
-const loginRob = async page => {
+const loginRob = async (page:any) => {
   await page.waitFor('.btn.btn-secondary')
   await page.click('.btn.btn-secondary')
   

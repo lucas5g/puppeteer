@@ -29,7 +29,8 @@ export const courses = [
 
 export const diaryDay = {
     Tuesday : [
-        'matematicaVM2N', 'quimicaVM3N', 'fisicaVM1N',
+        // 'matematicaVM2N',
+         'quimicaVM3N', 'fisicaVM1N',
         'portuguesVM3N', 'matematicaVM1N', 'geografiaVM2N'
     ],
     teste : [

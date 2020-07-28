@@ -6,30 +6,46 @@ import Robo from './robo'
 const menu = async () => {
 
 
-    let name = courses[0].name
-    let url = courses[0].url
+
 
     const coursesDay = diaryDay[nameDay()]
-
-    // console.log({coursesDay})
-    // console.log({courses})
-
     const diaryDayUrl = coursesDay.map((courseDay, index) => {
         // console.log({courseDay}, {index})
         // console.log(Object.values(courses[index]))
-        const teste =  courses.find( course => {
-            if(course.name === courseDay){
-                return course 
+        const teste = courses.find(course => {
+            if (course.name === courseDay) {
+                return course
             }
         })
 
-
-        return teste 
-        // console.log({teste})
+        return teste
 
     })
-    console.log({ coursesDay })
-    console.log({ diaryDayUrl })
+    // console.log({ coursesDay })
+    // console.log({ diaryDayUrl })
+    // let time = 14000
+        let time = 0
+        diaryDayUrl.forEach(course => {
+
+            setTimeout(() => {
+
+                let name = course.name
+                let url = course.url
+                let robo = new Robo(name, url)
+                console.log({ name })
+            }, time)
+            time+=15000
+
+        })
+
+    // let name = diaryDayUrl[0].name
+    // let url = diaryDayUrl[0].url
+    // let robo = new Robo(name, url)
+    // robo.setup()
+
+    // console.log({name, url})
+
+
 
     // const diaryDayUrl = courses.map(course => {
 

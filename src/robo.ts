@@ -61,7 +61,7 @@ class Robo {
   }
 
   async activeEdtion(page: any) {
-    await page.waitFor(14000)
+    await page.waitFor(14)
     await page.waitFor('#dropdown-2')
     await page.click('#dropdown-2')
     

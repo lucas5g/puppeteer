@@ -6,7 +6,7 @@ import Robo from './robo'
 const menu = async () => {
 
     const coursesDay = diaryDay[nameDay()]
-    // console.log(nameDay())
+    console.log(nameDay())
     console.log({coursesDay})
     const diaryDayUrl = coursesDay.map((courseDay, index) => {
         const teste = courses.find(course => {
@@ -18,7 +18,7 @@ const menu = async () => {
     })
 
     let time = 0
-    console.log({ diaryDayUrl })
+    // console.log({ diaryDayUrl })
     diaryDayUrl.forEach(course => {
 
         setTimeout(() => {
@@ -29,7 +29,7 @@ const menu = async () => {
             // robo.setup()
             console.log({ name })
         }, time)
-        time+=35000
+        time+=45000
 
     })
 

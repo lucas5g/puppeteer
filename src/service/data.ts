@@ -18,6 +18,7 @@ export const courses = [
     { name: 'filosofiaVM3N', url: 'https://meuvicuna.freicarlosvicuna.com.br/course/view.php?id=80&section=1&singlesec=1'},
     
     { name: 'fisicaVM1N', url: 'https://meuvicuna.freicarlosvicuna.com.br/course/view.php?id=65&section=1&singlesec=1'},
+    { name: 'fisicaVM2N', url: 'https://meuvicuna.freicarlosvicuna.com.br/course/view.php?id=66&section=1'},
 
 
     { name: 'geografiaVM2N' , url: 'https://meuvicuna.freicarlosvicuna.com.br/course/view.php?id=57&section=1'},
@@ -59,6 +60,10 @@ export const diaryDay = {
     Thursday:[
         'quimicaVM3N', 'filosofiaVM1N', 'matematicaVM2N',
         'biologiaVM1N', 'matematicaVM3N', 'quimicaVM2N'
+    ],
+    Friday:[
+        'portuguesVM2N', 'biologiaVM1N', 'matematicaVM3N',
+        'portuguesVM1N', 'fisicaVM2N'
     ],
     teste : [
         'matematicaVM2N', 'quimicaVM3N', 'fisicaVM1N',

@@ -48,6 +48,10 @@ export const courses = [
 
 
 export const diaryDay = {
+    Monday: [
+        'espanholVM2N',
+        'portuguesVM1N', 'espanholVM3N'
+    ],
     Tuesday : [
         'matematicaVM2N',
          'quimicaVM3N', 'fisicaVM1N',

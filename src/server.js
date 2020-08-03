@@ -18,7 +18,7 @@ const menu = async () => {
     })
 
     let time = 0
-    // console.log({ diaryDayUrl })
+    console.log({ diaryDayUrl })
     diaryDayUrl.forEach(course => {
 
         setTimeout(() => {
@@ -29,7 +29,7 @@ const menu = async () => {
             // robo.setup()
             console.log({ name })
         }, time)
-        time+=45000
+        time+=50000
 
     })
 

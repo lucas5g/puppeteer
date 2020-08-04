@@ -7,7 +7,8 @@ const menu = async () => {
 
     const coursesDay = diaryDay[nameDay()]
     console.log(nameDay())
-    console.log({coursesDay})
+    console.log(getDate())
+    // console.log({coursesDay})
     const diaryDayUrl = coursesDay.map((courseDay, index) => {
         const teste = courses.find(course => {
             if (course.name === courseDay) {
@@ -18,7 +19,7 @@ const menu = async () => {
     })
 
     let time = 0
-    console.log({ diaryDayUrl })
+    // console.log({ diaryDayUrl })
     diaryDayUrl.forEach(course => {
 
         setTimeout(() => {

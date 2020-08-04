@@ -53,9 +53,9 @@ export const diaryDay = {
         'portuguesVM1N', 'espanholVM3N'
     ],
     Tuesday : [
-        'matematicaVM2N',
-         'quimicaVM3N', 'fisicaVM1N',
-        'portuguesVM3N', 'matematicaVM1N', 'geografiaVM2N'
+        'matematicaVM1N','matematicaVM2N',
+        //  'quimicaVM3N', 'fisicaVM1N',
+        // 'portuguesVM3N',  'geografiaVM2N'
     ],
     Wednesday: [
         'matematicaVM1N', 'filosofiaVM2N',  'biologiaVM3N',

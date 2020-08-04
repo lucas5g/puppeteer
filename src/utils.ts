@@ -2,7 +2,7 @@ import moment from "moment"
 
 export const getDate = () => {
 
-    const date = moment().format('D/MM/Y')
+    const date = moment().format('DD/MM/Y')
 
     return `Diário de Classe - ${date}`
 }
